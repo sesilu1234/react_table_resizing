@@ -11,10 +11,16 @@ type TableRow = {
   email: string;
 };
 
+const NUM_OF_ROWS = 10;
+
 export default function Home() {
-  const [data, setData] = useState<TableRow[]>(initialData.slice(0, 10));
+  const [data, setData] = useState<TableRow[]>(
+    initialData.slice(0, NUM_OF_ROWS)
+  );
 
   const [pag, setPag] = useState<number>(1);
+
+  const num_pages = Math.ceil(initialData.length / NUM_OF_ROWS);
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center items-center">
@@ -36,7 +42,12 @@ export default function Home() {
           onClick={() => {
             setPag((prev) => {
               if (prev === 1) return prev;
-              setData(initialData.slice((prev - 2) * 10, (prev - 1) * 10));
+              setData(
+                initialData.slice(
+                  (prev - 2) * NUM_OF_ROWS,
+                  (prev - 1) * NUM_OF_ROWS
+                )
+              );
               return prev - 1;
             });
           }}
@@ -48,15 +59,15 @@ export default function Home() {
           className="
     absolute top-0 right-0
     flex items-center justify-center
-    w-10 h-10     /* ancho y alto iguales para círculo */
+    w-10 h-10
     rounded-full
     mt-3
     bg-gray-900
-    
-   
-    text-[#f5e942]
-    shadow-lg hover:shadow-xl
-    transition
+
+    text-yellow-300
+    font-semibold
+    shadow-md hover:shadow-lg
+    transition duration-300
     select-none
   "
         >
@@ -77,8 +88,10 @@ export default function Home() {
   "
         onClick={() => {
           setPag((prev) => {
-            if (prev === 2) return prev;
-            setData(initialData.slice(prev * 10, (prev + 1) * 10));
+            if (prev === num_pages) return prev;
+            setData(
+              initialData.slice(prev * NUM_OF_ROWS, (prev + 1) * NUM_OF_ROWS)
+            );
             return prev + 1;
           });
         }}

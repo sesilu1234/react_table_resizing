@@ -57,14 +57,11 @@ export default function TableCent({ data }: TableCentProps) {
 
   return (
     <>
-      <div
-        className="flex max-w-[65%]  max-h-[70vh] min-h-[55vh]  border shadow-[0_0_20px_#4cc9f066] rounded"
-        style={{ scrollbarGutter: "stable" }}
-      >
+      <div className="flex max-w-[65%]   min-h-[55vh]  border shadow-[0_0_20px_#4cc9f066] rounded overflow-x-auto">
         {keys.map((key, index) => (
           <div key={index} className="flex">
             <div
-              className="flex flex-col p-4 pt-2 bg-custom-dark rounded shadow max-w-[20rem]  h-full"
+              className="flex flex-col p-4 pt-2 bg-custom-dark rounded shadow max-w-[20rem] w-[10rem]  h-full"
               ref={(el) => {
                 if (el) {
                   columnRefs.current.set(index, el);
@@ -80,7 +77,7 @@ export default function TableCent({ data }: TableCentProps) {
               {columnValues[index].map((value, jindex) => (
                 <div
                   key={`${key}-${jindex}`}
-                  className="truncate overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 w-[10rem]"
+                  className="truncate overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 "
                   title={String(value)}
                 >
                   {value || "\u00A0"}
