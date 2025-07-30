@@ -11,7 +11,12 @@ export const tableData = [
   { id: 5, user: "Page", email: "zepp@example.com", city: "London" },
   { id: 6, user: "", email: "alice@example.com", city: "Houston" },
   { id: 7, user: "Bob", email: "bob@example.com", city: "Chicago" },
-  { id: 8, user: "Charlie", email: "", city: "Memphis" },
+  {
+    id: 8,
+    user: "Memphis Slim",
+    email: "wishmewell@example.com",
+    city: "Memphis",
+  },
   {
     id: 9,
     user: "Jimi Hendrixxxxxxxxxxxxxxxx",

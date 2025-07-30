@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Barlow_Condensed } from "next/font/google";
+import { ThemeProvider } from "./theme-context";
 
 const barlow = Barlow_Condensed({
   subsets: ["latin"],
@@ -14,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={barlow.className}>
-      <body>{children}</body>
+      <ThemeProvider>
+        <body>{children}</body>
+      </ThemeProvider>
     </html>
   );
 }
