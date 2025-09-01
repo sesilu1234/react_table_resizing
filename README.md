@@ -1,7 +1,7 @@
 
 
 
-##---------------##
+##---------------## \n
 pequeño ejercicio de resizing de columnas de una tabla
 ##---------------##
 
